@@ -25,6 +25,9 @@ int main(void) {
 
 	std::cout << "a: " << a << std::endl;
 	std::cout << "b: " << b << std::endl;
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	
 	std::cout << "----------------------------------" << std::endl;
 
 	// test operator+

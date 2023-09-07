@@ -1,7 +1,8 @@
 #include "ClapTrap.hpp"
 
-int main() {
-	ClapTrap clapTrap("Clappy");
+int main() 
+{
+	ClapTrap clapTrap("C1");
 
 	clapTrap.attack("enemy");
 	clapTrap.takeDamage(5);
@@ -12,7 +13,7 @@ int main() {
 	clapTrap2.takeDamage(2);
 	clapTrap2.beRepaired(1);
 
-	ClapTrap clapTrap3("Another ClapTrap");
+	ClapTrap clapTrap3("C2");
 	clapTrap3.attack("enemy");
 	clapTrap3.takeDamage(4);
 	clapTrap3.beRepaired(2);

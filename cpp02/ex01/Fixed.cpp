@@ -8,19 +8,19 @@ Fixed::Fixed() : _fixed_point_number(0)
 Fixed::Fixed(const int n)
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->_fixed_point_number = n << _kFractionalBits;
+	this->_fixed_point_number = n << _bits;
 }
 
 Fixed::Fixed(const float f)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->_fixed_point_number = roundf(f * (1 << _kFractionalBits));
+	this->_fixed_point_number = roundf(f * (1 << _bits));
 }
 
 Fixed::Fixed(const Fixed &other)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = other;
+	*this = other; //setrawbits = other.getrawbits differenze?
 }
 
 Fixed &Fixed::operator=(const Fixed &other)
@@ -48,16 +48,16 @@ void	Fixed::setRawBits(int const raw)
 
 float	Fixed::toFloat(void) const
 {
-	return (float)this->_fixed_point_number / (float)(1 << _kFractionalBits);
+	return (float)this->_fixed_point_number / (float)(1 << _bits);
 }
 
 int		Fixed::toInt(void) const
 {
-	return this->_fixed_point_number >> _kFractionalBits;
+	return this->_fixed_point_number >> _bits;
 }
 
 std::ostream& operator<<(std::ostream &out, const Fixed &fixed)
 {
-	out << fixed.toFloat();
-	return out;
+	out << fixed.toFloat();  //togetRawbits differenze, perchè?
+	return out; //operator<< classe std::ostream ma operator= classe Fixed?
 }

@@ -5,7 +5,8 @@
 # include <iostream>
 # include "Brain.hpp"
 
-class Animal {
+class Animal 
+{
 	protected:
 		std::string		_type;
 

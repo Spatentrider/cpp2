@@ -4,7 +4,8 @@
 # include <string>
 # include <iostream>
 
-class Brain {
+class Brain 
+{
 	protected:
 		std::string		_ideas[100];
 

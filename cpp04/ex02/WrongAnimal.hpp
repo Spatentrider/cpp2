@@ -4,7 +4,8 @@
 # include <string>
 # include <iostream>
 
-class WrongAnimal {
+class WrongAnimal 
+{
 	protected:
 		std::string		_type;
 

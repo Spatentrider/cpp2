@@ -3,11 +3,13 @@
 #include <iostream>
 
 DiamondTrap::DiamondTrap() {
+	//come richiamare una sola volta costruttore Claptrap? usare specificatore (Claptrap::name) o virtual class
 	this->_name = "DiamondTrap";
 	this->ClapTrap::_name = std::string("DiamondTrap").append("_clap_name");
 	this->_hp = FragTrap::_hp;
 	this->_energy = ScavTrap::_energy;
 	this->_attack = FragTrap::_attack;
+	//attack (Scavtrap)?
 }
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name)

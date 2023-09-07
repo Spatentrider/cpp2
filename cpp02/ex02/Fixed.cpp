@@ -6,12 +6,12 @@ Fixed::Fixed() : _fixed_point_number(0)
 
 Fixed::Fixed(const int n)
 {
-	this->_fixed_point_number = n << _kFractionalBits;
+	this->_fixed_point_number = n << _bits;
 }
 
 Fixed::Fixed(const float f)
 {
-	this->_fixed_point_number = roundf(f * (1 << _kFractionalBits));
+	this->_fixed_point_number = roundf(f * (1 << _bits));
 }
 
 Fixed::Fixed(const Fixed &other)
@@ -42,12 +42,12 @@ void	Fixed::setRawBits(int const raw)
 
 float	Fixed::toFloat(void) const
 {
-	return (float)this->_fixed_point_number / (float)(1 << _kFractionalBits);
+	return (float)this->_fixed_point_number / (float)(1 << _bits);
 }
 
 int		Fixed::toInt(void) const
 {
-	return this->_fixed_point_number >> _kFractionalBits;
+	return this->_fixed_point_number >> _bits;
 }
 
 std::ostream& operator<<(std::ostream &out, const Fixed &fixed)
@@ -88,7 +88,7 @@ bool Fixed::operator!=(const Fixed &other) const
 	return this->_fixed_point_number != other._fixed_point_number;
 }
 
-/*Arithmetic operators*/
+/*Arithmetic operators*/ //Perchè in float?
 
 Fixed Fixed::operator+(const Fixed &other) const
 {
@@ -140,7 +140,7 @@ Fixed Fixed::operator--(int)
 
 /*Min/Max*/
 
-Fixed& Fixed::min(Fixed &a, Fixed &b)
+Fixed Fixed::min(Fixed &a, Fixed &b)
 {
 	if (a._fixed_point_number < b._fixed_point_number)
 		return a;
@@ -154,7 +154,7 @@ const Fixed& Fixed::min(const Fixed &a, const Fixed &b)
 	return b;
 }
 
-Fixed& Fixed::max(Fixed &a, Fixed &b)
+Fixed Fixed::max(Fixed &a, Fixed &b)
 {
 	if (a._fixed_point_number > b._fixed_point_number)
 		return a;
